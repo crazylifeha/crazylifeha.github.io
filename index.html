@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="王康宁 (Kangning Wang) 的学术个人主页 - 北京航空航天大学 / 天目山实验室。主要研究方向：遥感图像语义分割、视觉状态空间模型 (Mamba / SSM)。">
+  <meta name="keywords"
+    content="Kangning Wang, 王康宁, Remote Sensing Semantic Segmentation, 遥感图像语义分割, State Space Models, SSM, Mamba, VSSD, CRISP, Beihang University, Tianmushan Laboratory">
+  <meta name="author" content="Kangning Wang">
+  <title>Kangning Wang (王康宁) | Academic Homepage</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/avatar.jpg" type="image/jpeg">
+</head>
+
+<body data-lang="zh">
+
+  <div class="layout-wrapper">
+
+    <!-- ==========================================
+         左侧固定侧边栏 (Sidebar Navigation - D2L 风格)
+         ========================================== -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- 个人基本信息卡片 -->
+      <div class="sidebar-header">
+        <div class="sidebar-avatar-wrapper">
+          <img src="assets/images/avatar.jpg" alt="Kangning Wang Avatar" class="sidebar-avatar">
+        </div>
+        <h1 class="sidebar-name">
+          <span class="lang-zh">王康宁</span>
+          <span class="lang-en">Kangning Wang</span>
+        </h1>
+        <div class="sidebar-role">
+          <span class="lang-zh">博士研究生</span>
+          <span class="lang-en">Ph.D. Student</span>
+        </div>
+        <div class="sidebar-affiliation">
+          <span class="lang-zh">北京航空航天大学 / 天目山实验室</span>
+          <span class="lang-en">Beihang University / TMS Lab</span>
+        </div>
+      </div>
+
+      <!-- 社交与学术直达链接 -->
+      <div class="sidebar-socials">
+        <a href="https://github.com/crazylifeha" target="_blank" rel="noopener" class="sidebar-social-btn"
+          title="GitHub: crazylifeha">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://arxiv.org/abs/2608.23746" target="_blank" rel="noopener" class="sidebar-social-btn"
+          title="arXiv:2608.23746">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+          </svg>
+          <span>arXiv</span>
+        </a>
+        <a href="mailto:contact@buaa.edu.cn" class="sidebar-social-btn" title="Email">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          <span>Email</span>
+        </a>
+      </div>
+
+      <!-- 类似 D2L 的垂直侧边栏目录导航 -->
+      <nav class="sidebar-nav">
+        <div class="sidebar-nav-title">
+          <span class="lang-zh">导航目录</span>
+          <span class="lang-en">CONTENTS</span>
+        </div>
+        <ul class="nav-list" id="nav-links">
+          <li class="nav-item">
+            <a href="#about" class="nav-link active">
+              <span class="nav-icon">👤</span>
+              <span class="lang-zh">个人简介</span>
+              <span class="lang-en">About Me</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#research" class="nav-link">
+              <span class="nav-icon">🔬</span>
+              <span class="lang-zh">研究方向</span>
+              <span class="lang-en">Research Focus</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#publications" class="nav-link">
+              <span class="nav-icon">📚</span>
+              <span class="lang-zh">发表论文</span>
+              <span class="lang-en">Publications</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">
+              <span class="nav-icon">🛠️</span>
+              <span class="lang-zh">开源项目</span>
+              <span class="lang-en">Projects</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#education" class="nav-link">
+              <span class="nav-icon">🎓</span>
+              <span class="lang-zh">教育经历</span>
+              <span class="lang-en">Education</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 侧边栏底部语言与主题控制区 -->
+      <div class="sidebar-footer-controls">
+        <button id="lang-toggle" class="control-btn" title="Switch Language / 切换语言">
+          <span>English</span>
+        </button>
+        <button id="theme-toggle" class="control-btn" aria-label="Toggle theme" title="切换深色/浅色主题">
+          <span>🌙</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- 移动端顶部轻量浮动条 -->
+    <div class="mobile-topbar">
+      <div class="mobile-brand">王康宁 (Kangning Wang)</div>
+      <div class="mobile-actions">
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         右侧主要内容滚动展示区 (Main Content Area)
+         ========================================== -->
+    <main class="main-content">
+
+      <!-- 1. 个人自述 (About) -->
+      <section id="about" class="content-section">
+        <h2 class="content-heading">
+          <span class="heading-icon">👋</span>
+          <span class="lang-zh">个人简介</span>
+          <span class="lang-en">About Me</span>
+        </h2>
+
+        <div class="bio-box">
+          <div class="lang-zh">
+            <p class="bio-lead">
+              你好！我是 <strong>王康宁</strong>，目前在 <strong>北京航空航天大学</strong>
+              杭州国际创新研究院（北航国新院）及<strong>天目山实验室</strong>攻读<strong>控制科学与工程</strong>博士学位，师从 <a
+                href="https://remex-lab.github.io/html/cn/index.html" target="_blank" rel="noopener">姜志国教授</a> 与 <a
+                href="https://haopzhang.github.io/" target="_blank" rel="noopener">张浩鹏教授</a>。
+            </p>
+            <p>
+              我的主要研究方向聚焦于<strong>遥感图像语义分割</strong>与<strong>视觉状态空间模型 (Mamba / SSM)</strong>。
+            </p>
+          </div>
+
+          <div class="lang-en">
+            <p class="bio-lead">
+              Hello! I am <strong>Kangning Wang</strong>, currently a Ph.D. student in Control Science & Engineering
+              at <strong>Hangzhou International Innovation Institute, Beihang University (BUAA)</strong> and
+              <strong>Tianmushan Laboratory</strong>, supervised by <a href="https://remex-lab.github.io/"
+                target="_blank" rel="noopener">Prof. Zhiguo Jiang</a> and <a href="https://haopzhang.github.io/"
+                target="_blank" rel="noopener">Prof. Haopeng Zhang</a>.
+            </p>
+            <p>
+              My primary research focus lies in <strong>Remote Sensing Semantic Segmentation</strong> and <strong>Vision
+                State Space Models (SSMs / Mamba)</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 重点研究方向 (Research Focus) -->
+      <section id="research" class="content-section">
+        <h2 class="content-heading">
+          <span class="heading-icon">🔬</span>
+          <span class="lang-zh">重点研究方向</span>
+          <span class="lang-en">Research Focus</span>
+        </h2>
+
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-icon">🎯</div>
+            <h3 class="research-title">
+              <span class="lang-zh">遥感图像语义分割</span>
+              <span class="lang-en">Remote Sensing Semantic Segmentation</span>
+            </h3>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon">🐍</div>
+            <h3 class="research-title">
+              <span class="lang-zh">视觉状态空间模型</span>
+              <span class="lang-en">Vision State Space Models (SSM)</span>
+            </h3>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon">🛰️</div>
+            <h3 class="research-title">
+              <span class="lang-zh">遥感图像智能解译</span>
+              <span class="lang-en">Remote Sensing Image Interpretation</span>
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 发表论文 (Selected Publications) -->
+      <section id="publications" class="content-section">
+        <h2 class="content-heading">
+          <span class="heading-icon">📚</span>
+          <span class="lang-zh">发表论文</span>
+          <span class="lang-en">Selected Publications</span>
+        </h2>
+
+        <div class="pub-list">
+
+          <!-- 论文 1: ECCV 2026 CRISP -->
+          <article class="pub-card">
+            <div class="pub-preview">
+              <img src="assets/images/paper-crisp.jpg" alt="CRISP framework architecture">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">CRISP: Calibration-Aware Visual State Space Duality for Remote Sensing Semantic
+                Segmentation</h3>
+              <div class="pub-authors">
+                <span class="author-me">Kangning Wang</span>, Haopeng Zhang*, Zhiguo Jiang
+              </div>
+              <div class="pub-venue">
+                <strong>European Conference on Computer Vision (ECCV)</strong>, 2026
+                <span class="badge badge-spotlight">ECCV 2026</span>
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2608.23746" class="pub-link-btn" target="_blank">📄 arXiv</a>
+                <a href="https://github.com/crazylifeha/CRISP" class="pub-link-btn" target="_blank">💻 Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 论文 2: LSMamba (IEEE JSTARS 录用) -->
+          <article class="pub-card">
+            <div class="pub-preview">
+              <img src="assets/images/paper-lsmamba.jpg" alt="LSMamba framework architecture">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">Bridging Global Context and Local Detail in State Space Models for Fine-Grained
+                Landslide Segmentation in Remote Sensing Imagery (LSMamba)</h3>
+              <div class="pub-authors">
+                <span class="author-me">Kangning Wang</span>, Haopeng Zhang*, Zhiguo Jiang
+              </div>
+              <div class="pub-venue">
+                <strong>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+                  (J-STARS)</strong>, 2026
+                <span class="badge badge-spotlight">IEEE JSTARS</span>
+              </div>
+              <div class="pub-links">
+                <a href="https://github.com/crazylifeha/LSMamba" class="pub-link-btn" target="_blank">💻 Code &
+                  Benchmark</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 论文 3: SPIE 2026 Star-Field Imager -->
+          <article class="pub-card">
+            <div class="pub-preview">
+              <img src="assets/images/paper-spie2026.png" alt="Star-Field Imager pipeline">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">From Raw Telemetry to Calibrated Space-Object Catalogs: A Self-Calibrating Pipeline
+                for a Space-Based Star-Field Imager</h3>
+              <div class="pub-authors">
+                <span class="author-me">Kangning Wang</span>, Sizhe Wen, Jing Chen, Yanlei Wen, Zhiguo Jiang, Danpei
+                Zhao, Haopeng Zhang*
+              </div>
+              <div class="pub-venue">
+                <strong>SPIE Astronomical Telescopes + Instrumentation</strong>, Vol. 14155, 2026
+              </div>
+              <div class="pub-links">
+                <a href="https://doi.org/10.1117/12.3103321" class="pub-link-btn" target="_blank">📄 SPIE Paper</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 论文 4: SPIE 2025 Enhanced-RSMamba -->
+          <article class="pub-card">
+            <div class="pub-preview">
+              <img src="assets/images/paper-spie2025.png" alt="Enhanced-RSMamba architecture">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">Enhanced-RSMamba: State Space Model for Semantic Segmentation of Remote Sensing
+                Images</h3>
+              <div class="pub-authors">
+                <span class="author-me">Kangning Wang</span>, Xiao Wang, Yongfei Xian, Zhiguo Jiang, Haopeng Zhang*
+              </div>
+              <div class="pub-venue">
+                <strong>SPIE Sensors + Imaging</strong>, 2025
+              </div>
+              <div class="pub-links">
+                <a href="https://doi.org/10.1117/12.3023023" class="pub-link-btn" target="_blank">📄 SPIE Paper</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 论文 5: 第七届载人航天学术大会 (中文论文支持双语自适应) -->
+          <article class="pub-card">
+            <div class="pub-preview">
+              <img src="assets/images/paper-manned2025.png" alt="Landing zone automatic screening pipeline">
+            </div>
+            <div class="pub-details">
+              <h3 class="pub-title">
+                <span class="lang-zh">载人航天器返回全球着陆区自动筛选</span>
+                <span class="lang-en">Automatic Screening of Global Landing Zones for Manned Spacecraft Return
+                  Missions</span>
+              </h3>
+              <div class="pub-authors">
+                <span class="lang-zh"><span class="author-me">王康宁</span>、田霖、张浩伟、张浩鹏*</span>
+                <span class="lang-en"><span class="author-me">Kangning Wang</span>, Lin Tian, Haowei Zhang, Haopeng
+                  Zhang*</span>
+              </div>
+              <div class="pub-venue">
+                <span class="lang-zh"><strong>第七届载人航天学术大会</strong>，2025</span>
+                <span class="lang-en"><strong>The 7th Manned Spaceflight Academic Conference</strong>, 2025</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 4. 开源项目 (Open Source Projects) -->
+      <section id="projects" class="content-section">
+        <h2 class="content-heading">
+          <span class="heading-icon">🛠️</span>
+          <span class="lang-zh">开源项目</span>
+          <span class="lang-en">Open Source Projects</span>
+        </h2>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">CRISP</h3>
+              <span class="project-links"><a href="https://github.com/crazylifeha/CRISP" target="_blank">GitHub
+                  ↗</a></span>
+            </div>
+            <p class="project-desc">
+              <span class="lang-zh">ECCV 2026 论文官方开源实现。针对遥感图像语义分割提出的校准感知视觉状态空间对偶模型 (Calibration-Aware Visual State Space
+                Duality)，全面集成 MMSegmentation 流水线。</span>
+              <span class="lang-en">Official PyTorch implementation for ECCV 2026 paper CRISP. A calibration-aware
+                visual state space duality architecture for remote sensing semantic segmentation, integrated into
+                MMSegmentation.</span>
+            </p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">LSMamba</h3>
+              <span class="project-links"><a href="https://github.com/crazylifeha/LSMamba" target="_blank">GitHub
+                  ↗</a></span>
+            </div>
+            <p class="project-desc">
+              <span class="lang-zh">基于视觉状态空间架构 (SSM / VSSD) 的遥感细粒度语义分割模型（包含 SFC 结构特征校准模块、LDEM 局部增强模块与轻量高效解码器）。</span>
+              <span class="lang-en">Vision State Space Duality model for fine-grained remote sensing segmentation with
+                Structural Feature Calibration (SFC) and Local Detail Enhancement (LDEM).</span>
+            </p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">web-page-translator</h3>
+              <span class="project-links"><a href="https://github.com/crazylifeha/web-page-translator"
+                  target="_blank">GitHub ↗</a></span>
+            </div>
+            <p class="project-desc">
+              <span class="lang-zh">面向学术阅读与多语言网页的浏览器沉浸式翻译扩展，支持双语对照、学术公式格式保留与划词智能翻译。</span>
+              <span class="lang-en">An open-source browser extension for immersive academic translation, supporting
+                bilingual display, formula preservation, and quick selection translation.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 教育经历 (Education) -->
+      <section id="education" class="content-section">
+        <h2 class="content-heading">
+          <span class="heading-icon">🎓</span>
+          <span class="lang-zh">教育经历</span>
+          <span class="lang-en">Education</span>
+        </h2>
+
+        <div class="exp-card">
+          <ul class="exp-list">
+            <li class="exp-item">
+              <div class="exp-degree">
+                <span class="lang-zh">控制科学与工程 - 硕博连读</span>
+                <span class="lang-en">Integrated Master-Ph.D. in Control Science & Engineering</span>
+              </div>
+              <div class="exp-school">
+                <span class="lang-zh">北京航空航天大学 / 天目山实验室</span>
+                <span class="lang-en">Beihang University (BUAA) / Tianmushan Laboratory</span>
+              </div>
+              <div class="exp-period">2024.09 - <span class="lang-zh">至今</span><span class="lang-en">Present</span>
+              </div>
+            </li>
+            <li class="exp-item">
+              <div class="exp-degree">
+                <span class="lang-zh">电子信息工程 - 工学学士</span>
+                <span class="lang-en">B.Eng. in Electronic Information Engineering</span>
+              </div>
+              <div class="exp-school">
+                <span class="lang-zh">武汉理工大学</span>
+                <span class="lang-en">Wuhan University of Technology (WUT)</span>
+              </div>
+              <div class="exp-period">2019.09 - 2023.06</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. 页脚 (Footer) -->
+      <footer class="footer">
+        <p>© 2026 Kangning Wang (王康宁). Powered by GitHub Pages.</p>
+        <p><span class="lang-zh">最后更新时间：2026年8月</span><span class="lang-en">Last updated: August 2026</span></p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="回到顶部">↑</button>
+
+  <!-- 高清图片点击放大灯箱 (Lightbox Modal) -->
+  <div id="image-modal" class="image-modal" aria-hidden="true">
+    <button class="image-modal-close" aria-label="关闭预览">✕</button>
+    <img id="image-modal-img" class="image-modal-content" src="" alt="放大预览图">
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

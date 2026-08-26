@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-cvpr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bg-cvpr)" />
+  <!-- Segmentation Mask Shapes -->
+  <path d="M 60 70 Q 120 40 180 80 T 260 140 T 160 200 T 70 140 Z" fill="rgba(59, 130, 246, 0.4)" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="270" cy="90" r="45" fill="rgba(16, 185, 129, 0.4)" stroke="#10b981" stroke-width="2"/>
+  <rect x="230" y="140" width="110" height="70" rx="8" fill="rgba(245, 158, 11, 0.4)" stroke="#f59e0b" stroke-width="2"/>
+  
+  <text x="200" y="235" fill="#94a3b8" font-size="12" font-family="sans-serif" font-weight="600" text-anchor="middle">Multi-modal Segmentation Framework</text>
+</svg>
