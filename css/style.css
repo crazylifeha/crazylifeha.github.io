@@ -437,6 +437,56 @@ img {
   font-weight: 400;
 }
 
+/* ==========================================================================
+   最新动态 (News Timeline)
+   ========================================================================== */
+
+.news-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.news-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.15rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.news-item:hover {
+  transform: translateX(4px);
+  border-color: var(--primary-border);
+  box-shadow: var(--shadow-md);
+}
+
+.news-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--primary-light);
+  color: var(--primary);
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.news-content {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.news-content strong {
+  color: var(--text-primary);
+}
+
 /* 重点研究方向网格 (3列自适应) */
 .research-grid {
   display: grid;
