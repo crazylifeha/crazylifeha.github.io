@@ -1,15 +1,12 @@
 /**
  * Academic Homepage Interactive Script
- * 包含：亮暗色主题切换、论文分类筛选、BibTeX展开与一键复制、新闻展开、导航高亮及平滑交互。
+ * 包含：中英文切换、亮暗色主题切换、导航高亮、移动端菜单、回到顶部和图片灯箱。
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
   initTheme();
   initNavScroll();
-  initPubFilters();
-  initBibtexToggles();
-  initNewsToggle();
   initBackToTop();
   initMobileMenu();
   initImageModal();
@@ -96,100 +93,7 @@ function updateThemeIcon(icon) {
 }
 
 /* ==========================================================================
-   2. 论文筛选器 (Publications Filter)
-   ========================================================================== */
-function initPubFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const pubCards = document.querySelectorAll('.pub-card');
-
-  if (!filterBtns.length || !pubCards.length) return;
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 更新激活按钮样式
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      pubCards.forEach(card => {
-        const categories = (card.getAttribute('data-category') || '').split(' ');
-        if (filterValue === 'all' || categories.includes(filterValue)) {
-          card.style.display = 'grid';
-          card.style.animation = 'fadeIn 0.3s ease forwards';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   3. BibTeX 展开与一键复制 (BibTeX Drawer & Copy)
-   ========================================================================== */
-function initBibtexToggles() {
-  // 展开/折叠 BibTeX 按钮
-  const bibtexBtns = document.querySelectorAll('.btn-bibtex-toggle');
-  bibtexBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = btn.getAttribute('data-target');
-      const box = document.getElementById(targetId);
-      if (box) {
-        box.classList.toggle('show');
-        btn.classList.toggle('active');
-      }
-    });
-  });
-
-  // 一键复制 BibTeX 代码
-  const copyBtns = document.querySelectorAll('.bibtex-copy-btn');
-  copyBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const codeElement = btn.parentElement.querySelector('.bibtex-code');
-      if (codeElement) {
-        const textToCopy = codeElement.innerText.trim();
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          showToast('BibTeX 引用已复制到剪贴板！');
-          const originalText = btn.innerText;
-          btn.innerText = '已复制 ✓';
-          setTimeout(() => {
-            btn.innerText = originalText;
-          }, 2000);
-        }).catch(err => {
-          console.error('复制失败:', err);
-          showToast('复制失败，请手动选取复制');
-        });
-      }
-    });
-  });
-}
-
-/* ==========================================================================
-   4. 新闻折叠与展开 (News Toggle)
-   ========================================================================== */
-function initNewsToggle() {
-  const toggleBtn = document.getElementById('toggle-news-btn');
-  const hiddenNewsItems = document.querySelectorAll('.news-item.news-hidden');
-
-  if (!toggleBtn || !hiddenNewsItems.length) return;
-
-  let isExpanded = false;
-
-  toggleBtn.addEventListener('click', () => {
-    isExpanded = !isExpanded;
-    hiddenNewsItems.forEach(item => {
-      item.style.display = isExpanded ? 'block' : 'none';
-    });
-    toggleBtn.innerHTML = isExpanded 
-      ? '收起历史动态 <span>▲</span>' 
-      : `查看更多动态 (+${hiddenNewsItems.length}) <span>▼</span>`;
-  });
-}
-
-/* ==========================================================================
-   5. 平滑滚动与导航激活态 (Smooth Scroll & Nav Highlight)
+   2. 平滑滚动与导航激活态 (Smooth Scroll & Nav Highlight)
    ========================================================================== */
 function initNavScroll() {
   const sections = document.querySelectorAll('section[id]');
@@ -228,29 +132,41 @@ function initNavScroll() {
 }
 
 /* ==========================================================================
-   6. 移动端菜单开关 (Mobile Menu)
+   3. 移动端菜单开关 (Mobile Menu)
    ========================================================================== */
 function initMobileMenu() {
   const menuBtn = document.getElementById('mobile-menu-btn');
-  const navLinks = document.getElementById('nav-links');
+  const sidebar = document.getElementById('sidebar');
 
-  if (!menuBtn || !navLinks) return;
+  if (!menuBtn || !sidebar) return;
+
+  function setMenuOpen(isOpen) {
+    sidebar.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  }
 
   menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    setMenuOpen(!sidebar.classList.contains('open'));
   });
 
   // 点击链接后自动收起菜单
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
+      setMenuOpen(false);
     });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setMenuOpen(false);
   });
 }
 
 /* ==========================================================================
-   7. 回到顶部按钮 (Back to Top)
+   4. 回到顶部按钮 (Back to Top)
    ========================================================================== */
 function initBackToTop() {
   const backToTopBtn = document.getElementById('back-to-top');
@@ -273,7 +189,7 @@ function initBackToTop() {
 }
 
 /* ==========================================================================
-   8. Toast 气泡通知 (Toast Notification)
+   5. Toast 气泡通知 (Toast Notification)
    ========================================================================== */
 function showToast(message) {
   let toast = document.getElementById('toast');
@@ -293,7 +209,7 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   9. 高清图片点击放大灯箱 (Lightbox Modal)
+   6. 高清图片点击放大灯箱 (Lightbox Modal)
    ========================================================================== */
 function initImageModal() {
   const modal = document.getElementById('image-modal');

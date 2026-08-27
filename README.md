@@ -7,15 +7,12 @@
 ## ✨ 核心特性
 
 - ⚡ **纯静态零依赖**：基于现代标准 HTML5 + CSS3 + 原生 JavaScript，秒开、零编译步骤、完全不需要安装 Node.js/npm。
-- 🌓 **深浅双色主题 (Dark / Light Mode)**：自动识别操作系统配色偏好，支持右上角一键无缝切换并记忆在本地。
-- 📚 **学术论文全功能展示 (Publications)**：
-  - 支持按分类（All / Conference / Journal / Patent & Others）快速切换筛选。
-  - 自动高亮本人作者姓名 (`Kangning Wang` / `王康宁`)。
-  - 支持 ECCV 2026 等重要会议/期刊标签。
-  - **内置 BibTeX 抽屉与一键复制功能**，方便同行快速引用。
-- 📢 **学术动态时间轴 (News)**：支持自动折叠历史记录，保持主页紧凑整洁。
+- 🌐 **中英文切换**：一键切换页面语言，并在浏览器本地记忆选择。
+- 🌓 **深浅双色主题 (Dark / Light Mode)**：自动识别操作系统配色偏好，支持一键切换并在本地记忆。
+- 📚 **学术论文展示 (Publications)**：高亮本人作者姓名，展示会议/期刊标签、论文链接和代码仓库，并支持点击预览图放大查看。
+- 📢 **学术动态时间轴 (News)**：按时间展示论文录用、代码发布等最新进展。
 - 🛠️ **精选开源项目与学术经历**：展示 CRISP、LSMamba 等代表作与研究经历。
-- 📱 **全平台响应式适配**：完美适配桌面大屏、笔记本、平板与智能手机。
+- 📱 **响应式适配**：桌面端使用固定侧栏，平板和手机端使用可开合导航菜单。
 
 ---
 
@@ -57,18 +54,17 @@
 所有内容均已做好清晰注释，只需在文本编辑器（如 VS Code）中打开 `index.html`：
 
 1. **修改基本信息与头像**：
-   - 替换 `assets/images/avatar.svg` 为您的个人寸照或学术头像（支持 `.jpg`, `.png`, `.svg`）。
-   - 在 `index.html` 的 Hero 部分修改姓名、学校机构、导师姓名及 Google Scholar / GitHub / Email 链接。
+   - 替换 `assets/images/avatar.jpg` 为个人寸照或学术头像。
+   - 在 `index.html` 的侧栏和个人简介部分修改姓名、学校机构、导师姓名及 GitHub / arXiv / Email 链接。
 
 2. **更新发表论文 (Publications)**：
-   - 复制 `<article class="pub-card" ...>` 结构块即可新增论文。
-   - 修改 `data-category="conference"` 可支持分类筛选。
+   - 复制 `<article class="pub-card">` 结构块即可新增论文。
    - 将作者列表中您的名字包裹在 `<span class="author-me">您的名字</span>` 内即可自动高亮。
-   - 将 BibTeX 引用内容粘贴到 `<pre class="bibtex-code">` 中即可实现一键复制功能。
+   - 将论文预览图放入 `assets/images/`，并更新图片路径、论文链接和代码链接。
 
 3. **更新学术动态 (News)**：
-   - 在 `<ul class="news-list">` 中添加 `<li class="news-item">`。
-   - 若要默认折叠某条动态，只需添加 `news-hidden` class。
+   - 在 `<div class="news-timeline">` 中复制并更新 `<div class="news-item">`。
+   - 分别填写 `.lang-zh` 与 `.lang-en` 内容，以保持双语信息一致。
 
 ---
 
@@ -80,7 +76,7 @@ academic-homepage/
 ├── css/
 │   └── style.css     # 现代化设计系统、CSS 变量、主题与响应式样式
 ├── js/
-│   └── main.js       # 主题切换、筛选过滤、BibTeX复制与动画交互
+│   └── main.js       # 语言/主题切换、导航、移动菜单与图片预览交互
 ├── assets/
 │   └── images/       # 头像与论文示意图
 └── README.md         # 部署与配置文档
