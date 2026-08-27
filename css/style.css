@@ -634,34 +634,18 @@ body[data-lang="zh"] p.lang-zh {
 .pub-venue {
   font-size: 0.86rem;
   color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  column-gap: 0.55rem;
-  row-gap: 0.4rem;
-  flex-wrap: wrap;
+  display: block;
   line-height: 1.4;
-}
-
-.pub-venue-name {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.pub-volume {
   font-style: italic;
 }
 
-.pub-year {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.6rem;
-  padding: 0.05rem 0.45rem;
+.pub-venue-name {
   color: var(--text-secondary);
-  background: var(--bg-tertiary);
-  border-radius: var(--radius-sm);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.76rem;
-  font-style: normal;
+  font-weight: 500;
+}
+
+.pub-detail {
+  display: inline;
   white-space: nowrap;
 }
 
@@ -669,6 +653,7 @@ body[data-lang="zh"] p.lang-zh {
   display: inline-flex;
   align-items: center;
   min-height: 1.6rem;
+  margin-left: 0.45rem;
   font-style: normal;
   font-size: 0.72rem;
   font-weight: 600;
